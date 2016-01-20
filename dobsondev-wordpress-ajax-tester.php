@@ -77,7 +77,7 @@ function dobsondev_ajax_tester_ajax_script() {
       $.ajax({
         method: "POST",
         url: ajaxurl,
-        data: { 'action': 'dobsondev_ajax_tester_approal_action', 'id': id }
+        data: { 'action': 'dobsondev_ajax_tester_approval_action', 'id': id }
       })
       .done(function( data ) {
         console.log('Successful AJAX Call! /// Return Data: ' + data);
@@ -106,6 +106,6 @@ function dobsondev_ajax_tester_ajax_handler() {
   echo json_encode($data);
   wp_die(); // just to be safe
 }
-add_action( 'wp_ajax_dobsondev_ajax_tester_approal_action', 'dobsondev_ajax_tester_ajax_handler' );
+add_action( 'wp_ajax_dobsondev_ajax_tester_approval_action', 'dobsondev_ajax_tester_ajax_handler' );
 
 ?>
