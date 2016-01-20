@@ -2,13 +2,13 @@
 /**
  * Plugin Name: DobsonDev WordPress AJAX Tester
  * Plugin URI: http://dobsondev.com
- * Description: A plugin for testing/illustrating how AJAX calls work with WordPress
+ * Description: A plugin for testing/illustrating how AJAX calls work with WordPress plugins.
  * Version: 0.666
  * Author: Alex Dobson
  * Author URI: http://dobsondev.com/
  * License: GPLv2
  *
- * Copyright 2015  Alex Dobson  (email : alex@dobsondev.com)
+ * Copyright 2016  Alex Dobson  (email : alex@dobsondev.com)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2, as
@@ -102,7 +102,7 @@ function dobsondev_ajax_tester_ajax_handler() {
   global $wpdb;
 
   $id = $_POST['id'];
-  $data = $wpdb->get_row( 'SELECT * FROM wp_options WHERE option_id = ' . $id, ARRAY_A );
+  $data = $wpdb->get_row( 'SELECT * FROM ' . $wpdb->prefix . 'options WHERE option_id = ' . $id, ARRAY_A );
   echo json_encode($data);
   wp_die(); // just to be safe
 }
